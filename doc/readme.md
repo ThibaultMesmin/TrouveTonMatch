@@ -1,0 +1,1 @@
+Installer l'extension 'vscode pdf' pour visualisé le cahier des charges directement sur Visual Studio Code
