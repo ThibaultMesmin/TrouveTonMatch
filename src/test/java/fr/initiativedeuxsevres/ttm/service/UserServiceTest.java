@@ -64,5 +64,46 @@ public class UserServiceTest {
         assertEquals("Mesmin", users.get(0).getLastName());
         assertEquals("Pepito", users.get(1).getLastName());
     }
+
+    @Test
+    public void FindUserByRoleTest() {
+        // given
+        User user1 = new User();
+        user1.setFirstName("Arthur");
+        user1.setLastName("Mesmin");
+        user1.setEmail("Arthur.Mesmin@example.com");
+        user1.setRole("Parrain");
+
+        User user2 = new User();
+        user2.setFirstName("Mathis");
+        user2.setLastName("Desbois");
+        user2.setEmail("Mathis.Desbois@example.com");
+        user2.setRole("Porteur");
+
+        User user3 = new User();
+        user3.setFirstName("Thibault");
+        user3.setLastName("Mesmin");
+        user3.setEmail("Thibault.Mesmin@example.com");
+        user3.setRole("Admin");
+
+        // when
+        when(userRepository.findByRole("Parrain")).thenReturn(List.of(user1));
+        when(userRepository.findByRole("Porteur")).thenReturn(List.of(user2));
+        when(userRepository.findByRole("Admin")).thenReturn(List.of(user3));
+
+        //then
+        List<User> admins = userServiceImpl.findUsersByRole("Admin");
+        List<User> parrains = userServiceImpl.findUsersByRole("Parrain");
+        List<User> porteurs = userServiceImpl.findUsersByRole("Porteur");
+
+        assertEquals(1, admins.size());
+        assertEquals("Admin", admins.get(0).getRole());
+
+        assertEquals(1, parrains.size());
+        assertEquals("Parrain", parrains.get(0).getRole());
+
+        assertEquals(1, porteurs.size());
+        assertEquals("Porteur", porteurs.get(0).getRole());
+    }
 }
 

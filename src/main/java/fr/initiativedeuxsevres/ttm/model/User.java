@@ -1,10 +1,9 @@
 package fr.initiativedeuxsevres.ttm.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -18,4 +17,11 @@ public class User {
     private String lastName;
     private String email;
     private String role;
+
+    @ManyToOne
+    @JoinColumn(name = "parrain_id")
+    private User parrain;
+    @OneToMany(mappedBy = "parrain")
+    private List<User> porteurs;
+
 }
