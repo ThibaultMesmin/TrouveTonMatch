@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+import fr.initiativedeuxsevres.ttm.model.Role;
 import fr.initiativedeuxsevres.ttm.model.User;
 import fr.initiativedeuxsevres.ttm.repository.UserRepository;
 import fr.initiativedeuxsevres.ttm.service.UserServiceImpl.UserServiceImpl;
@@ -29,17 +30,17 @@ public class UserServiceTest {
         user.setFirstName("Thibaut");
         user.setLastName("Mesmin");
         user.setEmail("thibault.msn@example.com");
-        user.setRole("Admin");
+        user.setRole(Role.ADMIN);
 
         when(userRepository.save(any(User.class))).thenReturn(user);
 
-        User createdUser = userServiceImpl.createUser("Thibaut", "Mesmin", "thibault.msn@example.com", "Admin");
+        User createdUser = userServiceImpl.createUser("Thibaut", "Mesmin", "thibault.msn@example.com", Role.ADMIN);
 
         assertNotNull(createdUser.getId());
         assertEquals("Thibaut", createdUser.getFirstName());
         assertEquals("Mesmin", createdUser.getLastName());
         assertEquals("thibault.msn@example.com", createdUser.getEmail());
-        assertEquals("Admin", createdUser.getRole());
+        assertEquals(Role.ADMIN, createdUser.getRole());
     }
 
     @Test
@@ -48,13 +49,13 @@ public class UserServiceTest {
         user1.setFirstName("Thibaut");
         user1.setLastName("Mesmin");
         user1.setEmail("thibault.msn@example.com");
-        user1.setRole("Admin");
+        user1.setRole(Role.ADMIN);
 
         User user2 = new User();
         user2.setFirstName("Thibault");
         user2.setLastName("Pepito");
         user2.setEmail("Coralie.antoine@example.com");
-        user2.setRole("User");
+        user2.setRole(Role.PORTEUR);
 
         when(userRepository.findByFirstName("Thibaut")).thenReturn(Arrays.asList(user1, user2));
 
@@ -72,38 +73,38 @@ public class UserServiceTest {
         user1.setFirstName("Arthur");
         user1.setLastName("Mesmin");
         user1.setEmail("Arthur.Mesmin@example.com");
-        user1.setRole("Parrain");
+        user1.setRole(Role.PARRAIN);
 
         User user2 = new User();
         user2.setFirstName("Mathis");
         user2.setLastName("Desbois");
         user2.setEmail("Mathis.Desbois@example.com");
-        user2.setRole("Porteur");
+        user2.setRole(Role.PORTEUR);
 
         User user3 = new User();
         user3.setFirstName("Thibault");
         user3.setLastName("Mesmin");
         user3.setEmail("Thibault.Mesmin@example.com");
-        user3.setRole("Admin");
+        user3.setRole(Role.ADMIN);
 
         // when
-        when(userRepository.findByRole("Parrain")).thenReturn(List.of(user1));
-        when(userRepository.findByRole("Porteur")).thenReturn(List.of(user2));
-        when(userRepository.findByRole("Admin")).thenReturn(List.of(user3));
+        when(userRepository.findByRole(Role.PARRAIN)).thenReturn(List.of(user1));
+        when(userRepository.findByRole(Role.PORTEUR)).thenReturn(List.of(user2));
+        when(userRepository.findByRole(Role.ADMIN)).thenReturn(List.of(user3));
 
         //then
-        List<User> admins = userServiceImpl.findUsersByRole("Admin");
-        List<User> parrains = userServiceImpl.findUsersByRole("Parrain");
-        List<User> porteurs = userServiceImpl.findUsersByRole("Porteur");
+        List<User> admins = userServiceImpl.findUsersByRole(Role.ADMIN);
+        List<User> parrains = userServiceImpl.findUsersByRole(Role.PARRAIN);
+        List<User> porteurs = userServiceImpl.findUsersByRole(Role.PORTEUR);
 
         assertEquals(1, admins.size());
-        assertEquals("Admin", admins.get(0).getRole());
+        assertEquals(Role.ADMIN, admins.get(0).getRole());
 
         assertEquals(1, parrains.size());
-        assertEquals("Parrain", parrains.get(0).getRole());
+        assertEquals(Role.PARRAIN, parrains.get(0).getRole());
 
         assertEquals(1, porteurs.size());
-        assertEquals("Porteur", porteurs.get(0).getRole());
+        assertEquals(Role.PORTEUR, porteurs.get(0).getRole());
     }
 }
 
