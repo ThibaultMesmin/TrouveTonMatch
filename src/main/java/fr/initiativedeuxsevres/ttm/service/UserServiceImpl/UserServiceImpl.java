@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setEmail(email);
-        user.setRole(Role.valueOf(role));
+        user.setRole(role);
         return userRepository.save(user);
     }
 

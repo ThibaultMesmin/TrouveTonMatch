@@ -27,6 +27,7 @@ public class UserServiceTest {
     @Test
     public void testCreateUser() {
         User user = new User();
+        user.setId(1L);
         user.setFirstName("Thibaut");
         user.setLastName("Mesmin");
         user.setEmail("thibault.msn@example.com");

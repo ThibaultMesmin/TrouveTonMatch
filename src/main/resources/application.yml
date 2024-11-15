@@ -9,4 +9,13 @@ spring:
     database: postgresql
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
+  security:
+    user:
+      name: user
+      password: 1234
+logging:
+  level:
+    org.springframework.security:
+      DEBUG
+

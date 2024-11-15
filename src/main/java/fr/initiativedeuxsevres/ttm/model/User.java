@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name="`user`")
+@Table(name="`users`")
 public class User {
     @Id
     @GeneratedValue
@@ -16,6 +16,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
     private Role role;
 
     @ManyToOne
@@ -23,5 +24,4 @@ public class User {
     private User parrain;
     @OneToMany(mappedBy = "parrain")
     private List<User> porteurs;
-
 }
