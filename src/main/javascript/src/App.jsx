@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import './style/App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import Header from './component/Header'
 
+function App() {
   return (
     <>
-
+      <Header></Header>
     </>
   )
 }
