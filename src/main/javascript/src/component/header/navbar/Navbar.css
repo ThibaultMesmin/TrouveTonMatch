@@ -1,0 +1,132 @@
+.navbar {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: px;
+    background-color: #e7246f;
+    position: relative;
+}
+
+.navbar .links {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-start; /* Aligner les liens à gauche */
+    flex-wrap: wrap; /* Permettre aux éléments de passer à la ligne si nécessaire */
+}
+
+.navbar .button-user {
+    font-size: 2em;
+    background: none;
+    color: white;
+    border: none;
+    margin-right: 75px; /* Ajouter une marge à droite pour éloigner le bouton utilisateur du bord */
+    order: 3; /* Assurer que le bouton utilisateur est en dernier */
+    align-self: center; /* Centrer verticalement */
+}
+
+.navbar .menu-icon {
+    display: none;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: white;
+    order: 1; /* Positionner le menu burger en premier */
+}
+
+.navbar .links a {
+    margin: 0 70px; /* Ajuster l'espace initial entre les liens */
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    text-align: center; /* Centrer le texte */
+}
+
+/* Media queries pour ajuster progressivement l'espacement */
+@media (max-width: 1365px) {
+    .navbar .links a {
+        margin: 0 50px; /* Réduire l'espace entre les liens */
+    }
+}
+@media (max-width: 1280px) {
+    .navbar .links a {
+        margin: 0 35px; /* Réduire l'espace entre les liens */
+    }
+}
+@media (max-width: 1200px) {
+    .navbar .links a {
+        margin: 0 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar .links a {
+        margin: 0 15px; 
+    }
+}
+
+@media (max-width: 887px) {
+    .navbar .links a {
+        margin: 0 10px; 
+    }
+}
+
+@media (max-width: 837px) {
+    .navbar .links a {
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 786px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+    }
+
+    .navbar .links {
+        display: none; /* Masquer les liens de navigation */
+        color: #e7246f;
+        width: 100%;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out; /* Transition pour l'animation */
+    }
+
+    .navbar .menu-icon {
+        display: block; /* Afficher le menu burger */
+        color: #e7246f;
+        order: 1; /* Assurer que le menu burger est à gauche */
+        cursor: pointer;
+    }
+
+    .navbar .button-user {
+        order: 3; /* Assurer que le bouton utilisateur est à droite */
+        align-self: center; /* Garder le bouton utilisateur au centre verticalement */
+        margin-right: 10px; /* Ajuster la marge à droite pour les petits écrans */
+        color: #e7246f;
+    }
+}
+
+/* Style pour le menu burger ouvert */
+.navbar .links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Positionner le menu déroulant en dessous de la navbar */
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Couleur de fond pour le menu burger */
+    z-index: 1;
+}
+
+.navbar .links.open a {
+    text-align: left;
+    padding: 14px;
+    border-bottom: 1px solid #ddd;
+    width: 100%; /* Prendre toute la largeur */
+    margin: 0; /* Supprimer les marges pour un affichage plus propre */
+}

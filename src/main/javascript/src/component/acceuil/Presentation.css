@@ -1,0 +1,31 @@
+/* Conteneur pour le texte de présentation */
+.body-accueil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Aligner les éléments en colonne */
+    width: 100vw; /* Utiliser toute la largeur de la vue */
+}
+
+.text-presentation {
+    padding: 2%;
+    width: 60%;
+    text-align: center;
+    font-size: 17px;
+}
+
+.register-button {
+    margin-top: 20px; /* Ajouter de l'espace au-dessus du bouton */
+    padding: 10px 20px;
+    background-color: #e7246f;
+    color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer; /* Changer le curseur lorsqu'on survole le bouton */
+    font-size: 1.1em;
+}
+
+.mini-logo-ttm{
+    max-width: 220px;
+}

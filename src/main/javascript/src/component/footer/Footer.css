@@ -1,0 +1,69 @@
+.footer {
+    color: white; /* Couleur du texte */
+    padding: 40px 10px 10px 10px; /* Espacement intérieur */
+    display: flex;
+    justify-content: space-between; /* Espacement entre les éléments */
+    align-items: center; /* Alignement vertical des éléments */
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.mini-logo-TTM {
+    max-width: 50px; /* Taille maximale réduite du logo */
+    margin: 10px;
+}
+
+.info-footer {
+    display: flex;
+    flex-direction: row; /* Aligner les paragraphes horizontalement */
+    text-align: left;
+    padding-top: 20px;
+    margin: 10px;
+}
+
+.info-footer p {
+    color: #e7246f;
+    margin: 5px 20px; /* Espacement vertical entre les paragraphes */
+}
+
+.reseaux-sociaux-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espacement entre les icônes */
+    margin: 10px;
+}
+
+.reseaux-sociaux-footer a {
+    color: #e7246f; /* Couleur des icônes */
+    font-size: 2em; /* Taille augmentée des icônes */
+    transition: color 0.3s; /* Transition pour le changement de couleur */
+}
+
+.reseaux-sociaux-footer a:hover {
+    color: #000000; /* Couleur au survol */
+}
+
+.info-footer a[href^="tel"] { 
+    color: #e7246f; /* Couleur rose pour les numéros de téléphone */ 
+    text-decoration: none; /* Supprimer la soulignure par défaut */ 
+} 
+.info-footer a[href^="mailto"] { 
+    color: #e7246f; /* Couleur rose pour les adresses email */ 
+    text-decoration: none; /* Supprimer la soulignure par défaut */ 
+}
+
+/* Media queries pour la réactivité */
+@media (max-width: 826px) {
+    .footer {
+        flex-direction: column; /* Aligner les éléments en colonne pour les petits écrans */
+        text-align: center;
+    }
+
+    .info-footer {
+        font-size: x-small;
+        margin: 10px 0;
+    }
+}

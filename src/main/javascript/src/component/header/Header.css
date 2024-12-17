@@ -1,0 +1,48 @@
+/* CSS existant */
+.Header {
+    background-size: cover;
+}
+
+.logoApplication {
+    width: 35%; /* Augmenter la largeur */
+    height: auto;
+    max-height: 300px; /* Augmenter la hauteur maximale */
+    display: block;
+    margin: auto;
+}
+
+.logoInitiative {
+    width: 15%; /* Augmenter la largeur */
+    height: auto;
+    max-height: 125px; /* Augmenter la hauteur maximale */
+    display: block;
+    margin: auto;
+}
+
+.Header .logo {
+    background: url("../../asset/fond.jpg") no-repeat center center; /* Centre l'image et évite les répétitions */
+    background-size: cover; /* L'image couvre toute la div sans dépasser */
+    width: 100%; /* S'assure que la div prend toute la largeur disponible */
+    height: 100%; /* S'assure que la div prend toute la hauteur disponible */
+}
+
+
+.navbar {
+    z-index: 2; /* S'assurer que la navbar est au-dessus des autres éléments */
+}
+
+.logoApplication, .logoInitiative { 
+    position: relative; z-index: 1; /* S'assurer que les logos sont en dessous de la navbar */ }
+
+/* Ajouter une media query pour les petits écrans */
+@media screen and (max-width: 600px) {
+    .navbar {
+        position: relative;
+        z-index: 1; /* Assure que la navbar est au-dessus des autres éléments */
+    }
+
+    .logoApplication, .logoInitiative {
+        position: relative;
+        z-index: 0;
+    }
+}
