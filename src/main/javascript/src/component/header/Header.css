@@ -3,7 +3,7 @@
     background-size: cover;
 }
 
-.logoApplication {
+.Header .logo .logoApplication {
     width: 35%; /* Augmenter la largeur */
     height: auto;
     max-height: 300px; /* Augmenter la hauteur maximale */
@@ -11,7 +11,7 @@
     margin: auto;
 }
 
-.logoInitiative {
+.Header .logo .logoInitiative {
     width: 15%; /* Augmenter la largeur */
     height: auto;
     max-height: 125px; /* Augmenter la hauteur maximale */
@@ -31,7 +31,7 @@
     z-index: 2; /* S'assurer que la navbar est au-dessus des autres éléments */
 }
 
-.logoApplication, .logoInitiative { 
+.Header .logo .logoApplication, .logoInitiative { 
     position: relative; z-index: 1; /* S'assurer que les logos sont en dessous de la navbar */ }
 
 /* Ajouter une media query pour les petits écrans */
@@ -41,7 +41,7 @@
         z-index: 1; /* Assure que la navbar est au-dessus des autres éléments */
     }
 
-    .logoApplication, .logoInitiative {
+    .Header .logo .logoApplication, .logoInitiative {
         position: relative;
         z-index: 0;
     }

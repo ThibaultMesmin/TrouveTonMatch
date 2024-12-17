@@ -85,7 +85,6 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        background-color: transparent;
     }
 
     .navbar .links {
@@ -98,7 +97,7 @@
 
     .navbar .menu-icon {
         display: block; /* Afficher le menu burger */
-        color: #e7246f;
+        color: #ffffff;
         order: 1; /* Assurer que le menu burger est à gauche */
         cursor: pointer;
     }
@@ -107,7 +106,7 @@
         order: 3; /* Assurer que le bouton utilisateur est à droite */
         align-self: center; /* Garder le bouton utilisateur au centre verticalement */
         margin-right: 10px; /* Ajuster la marge à droite pour les petits écrans */
-        color: #e7246f;
+        color: #ffffff;
     }
 }
 
@@ -119,7 +118,7 @@
     top: 100%; /* Positionner le menu déroulant en dessous de la navbar */
     left: 0;
     width: 100%;
-    background-color: #333; /* Couleur de fond pour le menu burger */
+    background-color: #e7246f; /* Couleur de fond pour le menu burger */
     z-index: 1;
 }
 
