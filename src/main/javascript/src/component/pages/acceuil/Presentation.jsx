@@ -1,5 +1,6 @@
 import "./Presentation.css";
 import MiniLogo from '../../asset/PetitTTM.png'
+import { Link } from 'react-router-dom'
 
 const Presentation = () => {
     return (
@@ -22,7 +23,7 @@ const Presentation = () => {
                 pour faire appel à des partenaires experts dans vos besoin.
             </p>
             <img className="mini-logo-ttm" src={MiniLogo} alt="Mini logo Trouve ton match" />
-            <a className="register-button" href="/register">Je crée mon compte</a>
+            <Link className="register-button" to="/register">Je crée mon compte</Link>
         </div>
     );
 };
