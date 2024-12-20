@@ -10,7 +10,7 @@ import java.util.List;
 @Table(name="`users`")
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String firstName;
@@ -22,6 +22,7 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "parrain_id")
     private User parrain;
+
     @OneToMany(mappedBy = "parrain")
     private List<User> porteurs;
 }
